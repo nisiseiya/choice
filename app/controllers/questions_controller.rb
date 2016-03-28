@@ -8,7 +8,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(text: "")
+    Question.create(question_params)
   end
 
+  private
+  def question_params
+    params.permit(:text)
+  end
 end
