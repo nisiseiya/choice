@@ -7,7 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <header class="header">
+    <div class="header_bar">
+      <h1><a href="/">Choice</a></h1>
+    </div>
+    <% if user_signed_in? %>
+      <div>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <a href="/questions/new">投稿する</a>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </div>
+    <% end %>
+  </header>
 <%= yield %>
 
 </body>
