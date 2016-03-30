@@ -13,7 +13,15 @@
     </div>
     <% if user_signed_in? %>
       <div>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <span>
+        <%= current_user.nickname %>
+        <ul>
+          <li>
+            <a href="/users/<%= current_user.id %>">マイページ</a>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      </span>
         <a href="/questions/new">投稿する</a>
       </div>
     <% else %>
