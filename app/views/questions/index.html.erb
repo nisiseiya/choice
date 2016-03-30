@@ -3,6 +3,9 @@
     <p>---------------------</p>
   <ul>
       <% if user_signed_in? && current_user.id == question.user_id %>
+       <li>
+          <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
+        </li>
         <li>
           <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
         </li>
