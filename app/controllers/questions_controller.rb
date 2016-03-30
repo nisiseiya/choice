@@ -13,6 +13,13 @@ class QuestionsController < ApplicationController
     Question.create(text: question_params[:text], user_id: current_user.id)
   end
 
+  def destroy
+    question = Question.find(params[:id])
+    if question.user_id == current_user.id
+      question.destroy
+    end
+  end
+
   private
   def question_params
     params.permit(:text)
