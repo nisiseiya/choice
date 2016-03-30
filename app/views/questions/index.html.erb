@@ -1,6 +1,7 @@
 <div>
   <% @questions.each do |question| %>
     <p><%= question.text %></p>
+    <span>投稿者：</span><%= question.user.nickname %>さん
   <% end %>
   <%= paginate(@questions) %>
 </div>
