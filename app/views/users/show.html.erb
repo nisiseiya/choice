@@ -1,0 +1,11 @@
+<div>
+  <h4><%= @nickname %>さんの投稿一覧</h4>
+  <% @questions.each do |question| %>
+    <div>
+      <p>
+        <%= question.text %>
+      </p>
+    </div>
+  <% end %>
+  <%= paginate(@questions) %>
+</div>
