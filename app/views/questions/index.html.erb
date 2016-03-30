@@ -1,7 +1,17 @@
 <div>
   <% @questions.each do |question| %>
+    <p>---------------------</p>
+  <ul>
+      <% if user_signed_in? && current_user.id == question.user_id %>
+        <li>
+          <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
+        </li>
+     <% end %>
+  </ul>
+<span>
     <p><%= question.text %></p>
     <span>投稿者：</span><%= question.user.nickname %>さん
-  <% end %>
+</span>
+<% end %>
   <%= paginate(@questions) %>
 </div>

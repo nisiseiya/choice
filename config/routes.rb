@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get    'questions/new'      =>  'questions#new'
   post   'questions'          =>  'questions#create'
   get    'users/:id'          =>  'users#show'
+  delete 'questions/:id'      =>  'questions#destroy'
 end
