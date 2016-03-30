@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(question_params)
+    Question.create(text: question_params[:text], user_id: current_user.id)
   end
 
   private
