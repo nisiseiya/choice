@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get    'users/:id'          =>  'users#show'
   delete 'questions/:id'      =>  'questions#destroy'
   get    'questions/:id/edit' =>  'questions#edit'
+  patch  'questions/:id'      =>  'questions#update'
 end
