@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete 'questions/:id'      =>  'questions#destroy'
   get    'questions/:id/edit' =>  'questions#edit'
   patch  'questions/:id'      =>  'questions#update'
+  get    'questions/:id'      =>  'questions#show'
 end
