@@ -1,20 +1,29 @@
 <div>
+  <div>
   <% @questions.each do |question| %>
     <p>---------------------</p>
-  <ul>
-      <% if user_signed_in? && current_user.id == question.user_id %>
-       <li>
-          <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
-        </li>
-     <% end %>
-  </ul>
-<span>
-    <p><%= question.text %></p>
+    <ul>
+      <li>
+        <%= link_to '詳細', "/questions/#{question.id}", method: :get %>
+      </li>
+    <% if user_signed_in? && current_user.id == question.user_id %>
+      <li>
+        <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
+      </li>
+      <li>
+        <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  <p>
+  <%= question.text %>
+  </p>
+  <span>
+    <a href="/user/<%= question.user_id %>">
     <span>投稿者：</span><%= question.user.nickname %>さん
-</span>
-<% end %>
+    </a>
+  </span>
+  <% end %>
   <%= paginate(@questions) %>
 </div>
