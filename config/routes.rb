@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post   'questions'          =>  'questions#create'
   get    'users/:id'          =>  'users#show'
   delete 'questions/:id'      =>  'questions#destroy'
+  get    'questions/:id/edit' =>  'questions#edit'
+  patch  'questions/:id'      =>  'questions#update'
 end
