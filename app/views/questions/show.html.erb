@@ -19,4 +19,12 @@
       </a>
     </span>
   </div>
+  <div>
+    <% if current_user %>
+      <%= form_tag("/questions/#{@question.id}/answars", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+  </div>
 </div>
