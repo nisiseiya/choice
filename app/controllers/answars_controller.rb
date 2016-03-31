@@ -1,6 +1,7 @@
 class AnswarsController < ApplicationController
   def create
-    Answar.create(text: answar_params[:text], question_id: answar_params[:question_id], user_id: current_user.id)
+    @answar = Answar.create(text: answar_params[:text], question_id: answar_params[:question_id], user_id: current_user.id)
+    redirect_to "/questions/#{@answar.question.id}"
   end
 
   private
