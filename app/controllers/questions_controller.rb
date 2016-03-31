@@ -24,6 +24,13 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def update
+    question = Question.find(params[:id])
+    if question.user_id == current_user.id
+      question.update(question_params)
+    end
+  end
+
   private
   def question_params
     params.permit(:text)
