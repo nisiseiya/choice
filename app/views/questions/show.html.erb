@@ -12,11 +12,31 @@
         </ul>
       </div>
     <% end %>
+     <h4>＜質問内容＞</h4>
     <%= simple_format(@question.text) %>
     <span>
       <a href="/users/<%= @question.user.id %>">
         <span>投稿者</span><%= @question.user.nickname %>
       </a>
     </span>
+  </div>
+  <div>
+    <% if current_user %>
+      <%= form_tag("/questions/#{@question.id}/answars", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+    <div>
+      <% if @answars %>
+        <h4>＜回答一覧＞</h4>
+        <% @answars.each do |answar| %>
+          <p>
+            <strong><%= link_to answar.user.nickname, "/users/#{answar.user_id}" %>:</strong>
+            <%= answar.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
