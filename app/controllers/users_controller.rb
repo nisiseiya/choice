@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
-    @nickname = current_user.nickname
-    @questions = current_user.questions.page(params[:page]).per(5).order("created_at DESC")
+    user = User.find(params[:id])
+    @nickname = user.nickname
+    @questions = user.questions.page(params[:page]).per(5).order("created_at DESC")
   end
 end
