@@ -29,7 +29,7 @@
     <% end %>
     <div>
       <% if @answars %>
-        <h4>＜回答一覧＞</h4>
+      <h4>＜回答一覧＞</h4>
         <% @answars.each do |answar| %>
           <p>
             <strong><%= link_to answar.user.nickname, "/users/#{answar.user_id}" %>:</strong>
