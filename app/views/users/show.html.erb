@@ -1,5 +1,5 @@
 <div>
-  <h4><%= @nickname %>さんの投稿一覧</h4>
+  <h4><%= @nickname %>さんの質問一覧（<%= @q_count %>）</h4>
   <% @questions.each do |question| %>
     <div>
       <p>
@@ -8,4 +8,15 @@
     </div>
   <% end %>
   <%= paginate(@questions) %>
+</div>
+<div>
+  <h4><%= @nickname %>さんの回答一覧（<%= @a_count %>）</h4>
+  <% @answars.each do |answar| %>
+    <div>
+      <p>
+        <%= answar.text %>
+      </p>
+    </div>
+  <% end %>
+  <%= paginate(@answars) %>
 </div>
