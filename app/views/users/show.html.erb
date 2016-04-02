@@ -1,4 +1,6 @@
 <div>
+  <h4><%= @nickname %>さんの自己紹介</h4>
+  <p><%= @introduction %></p>
   <h4><%= @nickname %>さんの質問一覧（<%= @q_count %>）</h4>
   <% @questions.each do |question| %>
     <div>
